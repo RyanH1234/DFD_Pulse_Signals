@@ -593,9 +593,3 @@ if __name__ == "__main__":
     vid_stats = analyse_videos(data)
     data = preprocessing(data, vid_stats)
     rPPG(data)
-
-# TODO
-# - handle multiple faces in the frame
-# - remove those videos which have loss rate > 20% e.g. errs encountered in videos > some constant
-# - add in possible checkpoints for crashing e.t.c
-# - maybe convert from tuples to dictionaries for ease of use?
