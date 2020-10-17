@@ -503,19 +503,3 @@ if __name__ == "__main__":
     # run_RNN(X_train, y_train, X_val, y_val, X_test, y_test)
     # run_deep_WaveNet(X_train, y_train, X_val, y_val, X_test, y_test)
     model = run_best_WaveNet(X_train, y_train, X_val, y_val, X_test, y_test)
-
-    # run ROC curve
-    # model = retrieve_keras_model_from_file('wavenet.h5')
-    y_true = y_test
-    X_test = np.asarray(X_test)
-    X_test = np.expand_dims(X_test, axis=2)
-    y_score = [y[0] for y in model.predict(X_test)]
-    fpr, tpr, thresholds = roc_curve(y_true, y_score)
-
-    plt.plot(fpr, tpr, label='ROC')
-    plt.plot([0,1], [0, 1], label='45 Degree Line')
-    plt.legend()
-    plt.title("Wavenet ROC Curve")
-    plt.xlabel('FPR')
-    plt.ylabel('TPR')
-    plt.show()
